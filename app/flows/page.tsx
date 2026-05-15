@@ -18,7 +18,9 @@ export default function FlowsLanding() {
             className="rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5 hover:border-blue-500 hover:shadow-md transition"
           >
             <div className="text-xs font-semibold text-blue-600">FLOW A</div>
-            <div className="mt-1 text-lg font-medium">Size first</div>
+            <div className="mt-1 text-lg font-medium">
+              Size First (4 Levels, Item Level)
+            </div>
             <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
               HOT DRINKS → Size → Variety → wizard (Milks → Extras).
             </p>
@@ -34,7 +36,9 @@ export default function FlowsLanding() {
             className="rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5 hover:border-indigo-500 hover:shadow-md transition"
           >
             <div className="text-xs font-semibold text-indigo-600">FLOW B</div>
-            <div className="mt-1 text-lg font-medium">Type first</div>
+            <div className="mt-1 text-lg font-medium">
+              Type First (3 Levels, Modifiers)
+            </div>
             <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
               HOT DRINKS → Type → wizard (Size_Milk → Extras).
             </p>
