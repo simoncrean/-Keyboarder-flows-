@@ -18,7 +18,7 @@ export default function FlowAPage() {
   const setLayout = useBuilder((s) => s.setLayout);
   const region = useBuilder((s) => s.region);
 
-  // Flow A is the original Size → Variety → wizard{Milks, Extras} drill.
+  // Flow A is the original Size → Type → wizard{Milks, Extras} drill.
   // No products are passed in — the comparison focuses on the HOT DRINKS
   // coffee journey, so other depts remain empty submenus.
   useEffect(() => {

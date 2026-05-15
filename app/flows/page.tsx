@@ -22,12 +22,12 @@ export default function FlowsLanding() {
               Size First (4 Levels, Item Level)
             </div>
             <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-              HOT DRINKS → Size → Variety → wizard (Milks → Extras).
+              HOT DRINKS → Size → Type → wizard (Milks → Extras).
             </p>
             <ul className="mt-3 text-xs text-zinc-500 space-y-0.5">
               <li>• 2 menu drills before the wizard</li>
               <li>• Wizard: Milks (single) then Extras (multi)</li>
-              <li>• 23 varieties surfaced inside each Size</li>
+              <li>• 23 types surfaced inside each Size</li>
             </ul>
           </Link>
 

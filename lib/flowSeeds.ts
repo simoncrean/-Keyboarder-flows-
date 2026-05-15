@@ -100,7 +100,7 @@ function buildHotDrinksFlowB(): Menu {
   return dept;
 }
 
-// Flow A reuses the existing skeleton seed (Size → Variety → wizard{Milks,
+// Flow A reuses the existing skeleton seed (Size → Type → wizard{Milks,
 // Extras}). Re-exported here so /flows/a and /flows/b share a call surface.
 export function buildLayoutFlowA(
   products: Product[],

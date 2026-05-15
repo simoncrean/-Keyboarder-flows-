@@ -36,8 +36,8 @@ function groupForProduct(p: Product): FunctionalGroup {
 
 // "Seed skeleton" produces a layout mirroring the xlsx import architecture:
 //   - root → 11 functional dept submenus (HOT DRINKS, COLD DRINKS, …, Epay managed)
-//   - HOT DRINKS is a Size → Variety → Extras drill (one tile per Size, each
-//     Size drills into Variety configurator tiles whose only axis is the
+//   - HOT DRINKS is a Size → Type → Extras drill (one tile per Size, each
+//     Size drills into Type configurator tiles whose only axis is the
 //     multi-select Extras list — matches the customer's coffee workflow)
 //   - all other depts are pre-populated with BlueTonder products grouped via
 //     `groupForProduct`, with "More…" overflow at MAX_DEPTH
@@ -53,7 +53,7 @@ const SIZES = [
   "Large Refill",
 ];
 
-const VARIETIES = [
+const TYPES = [
   "Flat White",
   "Latte",
   "Cappuccino",
@@ -92,11 +92,11 @@ const EXTRAS = [
   "Cold Milk",
 ];
 
-// Each Variety tile is a leaf configurator with two axes — Milks
-// (single-select) then Extras (multi-select). Tapping a variety opens the
+// Each Type tile is a leaf configurator with two axes — Milks
+// (single-select) then Extras (multi-select). Tapping a type opens the
 // wizard: pick one milk, advances; toggle any extras, hit Done. Extras is
 // the final axis — the drill stops there.
-function varietyConfigurator(label: string): ConfiguratorCell {
+function typeConfigurator(label: string): ConfiguratorCell {
   return {
     kind: "configurator",
     label,
@@ -114,16 +114,16 @@ function varietyConfigurator(label: string): ConfiguratorCell {
   };
 }
 
-// Menu drill: HOT DRINKS → Size → Variety. Tapping a Variety opens the
+// Menu drill: HOT DRINKS → Size → Type. Tapping a Type opens the
 // 2-axis Milks → Extras wizard.
 function buildHotDrinksDept(): Menu {
   const dept = emptyMenu("HOT DRINKS", 2);
   SIZES.forEach((size, i) => {
     if (i >= CELLS_PER_MENU) return;
     const sizeMenu = emptyMenu(size, 3);
-    VARIETIES.forEach((variety, j) => {
+    TYPES.forEach((type, j) => {
       if (j >= CELLS_PER_MENU) return;
-      sizeMenu.cells[j] = varietyConfigurator(variety);
+      sizeMenu.cells[j] = typeConfigurator(type);
     });
     dept.cells[i] = { kind: "submenu", menu: sizeMenu };
   });
@@ -175,7 +175,7 @@ export function seedFromTaxonomy(
   const root = emptyMenu(rootLabel, 1);
 
   // Pre-bucket products by functional grouping. HOT DRINKS is handled as a
-  // Size→Variety→Extras drill, so its catalog products are skipped here —
+  // Size→Type→Extras drill, so its catalog products are skipped here —
   // they remain available in the palette for manual placement if needed.
   const byGroup = new Map<(typeof IMPULSE_DEPTS)[number], Product[]>();
   for (const g of IMPULSE_DEPTS) byGroup.set(g, []);
